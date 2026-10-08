@@ -34,6 +34,11 @@ administrators can lock themselves out of the web interface.
 """
 
 
+def cell(text):
+    """Make text safe inside a Markdown table cell."""
+    return " ".join(str(text).split()).replace("|", "\\|")
+
+
 def render():
     """Return the page text."""
     with open(BASELINE, encoding="utf-8") as fh:
@@ -47,8 +52,8 @@ def render():
             out.append("| Setting | Expected | Tier | CIS | Why |")
             out.append("| ------- | -------- | ---- | --- | --- |")
         out.append(
-            f"| `{check['setting']}` | `{fmt_expected(check)}` | {TIERS[check['tier']]} "
-            f"| {check['cis'] or '-'} | {check['why']} |"
+            f"| `{cell(check['setting'])}` | `{cell(fmt_expected(check))}` "
+            f"| {TIERS[check['tier']]} | {cell(check['cis'] or '-')} | {cell(check['why'])} |"
         )
     return "\n".join(out) + "\n"
 
