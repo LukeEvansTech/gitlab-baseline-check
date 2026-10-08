@@ -16,7 +16,7 @@ dev_addr = "localhost:8000"
 # Repository integration
 repo_url = "https://github.com/LukeEvansTech/gitlab-baseline-check"
 repo_name = "LukeEvansTech/gitlab-baseline-check"
-edit_uri = "edit/main/docs/docs"
+edit_uri = "edit/main/docs/docs/"
 
 [project.theme]
 name = "material"
