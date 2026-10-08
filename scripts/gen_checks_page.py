@@ -7,10 +7,15 @@ tests/test_docs.py fails if the page is out of date.
 
 import json
 import os
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASELINE = os.path.join(ROOT, "baseline.json")
 PAGE = os.path.join(ROOT, "docs", "docs", "checks.md")
+sys.path.insert(0, ROOT)
+# pylint: disable-next=wrong-import-position
+from gitlab_baseline_check import fmt_expected  # noqa: E402
+
 TIERS = {"free": "All tiers", "premium": "Premium", "ultimate": "Ultimate"}
 
 INTRO = """\
@@ -29,22 +34,6 @@ administrators can lock themselves out of the web interface.
 """
 
 
-def expected(check):
-    """Render the expected value the way the scripts print it."""
-    value = check["expect"]
-    if isinstance(value, bool):
-        text = "true" if value else "false"
-    elif isinstance(value, list):
-        text = ";".join(value)
-    else:
-        text = str(value)
-    if check["op"] == "le":
-        return "<= " + text
-    if check["op"] == "contains":
-        return "includes " + text
-    return text
-
-
 def render():
     """Return the page text."""
     with open(BASELINE, encoding="utf-8") as fh:
@@ -58,7 +47,7 @@ def render():
             out.append("| Setting | Expected | Tier | CIS | Why |")
             out.append("| ------- | -------- | ---- | --- | --- |")
         out.append(
-            f"| `{check['setting']}` | `{expected(check)}` | {TIERS[check['tier']]} "
+            f"| `{check['setting']}` | `{fmt_expected(check)}` | {TIERS[check['tier']]} "
             f"| {check['cis'] or '-'} | {check['why']} |"
         )
     return "\n".join(out) + "\n"
