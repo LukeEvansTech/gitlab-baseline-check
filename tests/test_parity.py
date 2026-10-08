@@ -72,7 +72,9 @@ class Parity(unittest.TestCase):
             text=True,
             check=False,
         )
-        self.assertEqual(proc.returncode, 1, proc.stdout + proc.stderr)
+        output = proc.stdout + proc.stderr
+        self.assertEqual(proc.returncode, 1, output)
+        self.assertTrue(os.path.exists(out), "no CSV written:\n" + output)
         self.assertEqual(read(out), read(EXPECTED))
         self.assertNotIn("must-not-appear", proc.stdout)
 
