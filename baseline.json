@@ -62,7 +62,7 @@
       "expect": true,
       "tier": "free",
       "cis": "",
-      "why": "A safety net if sign-up is turned back on: new accounts wait for an administrator."
+      "why": "If someone turns sign-up back on, new accounts still wait for an administrator."
     },
     {
       "area": "Sign-up",
@@ -233,7 +233,7 @@
       "expect": false,
       "tier": "free",
       "cis": "",
-      "why": "Exports by administrators are recorded in the audit log and notify project members."
+      "why": "GitLab records exports by administrators in the audit log and notifies project members."
     },
     {
       "area": "Identity after SSO",

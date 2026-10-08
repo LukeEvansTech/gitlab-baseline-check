@@ -1,0 +1,84 @@
+# Zensical Configuration
+# https://zensical.org/docs/
+
+[project]
+site_name = "GitLab Baseline Check"
+site_description = "Read-only check of a GitLab self-managed instance's security settings, in Python and PowerShell"
+site_author = "Luke Evans"
+site_url = "https://lukeevanstech.github.io/gitlab-baseline-check/"
+copyright = "Copyright © 2026 Luke Evans"
+
+docs_dir = "docs"
+site_dir = "site"
+use_directory_urls = true
+dev_addr = "localhost:8000"
+
+[project.theme]
+name = "material"
+variant = "modern"
+language = "en"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "blue"
+accent = "light-blue"
+
+[project.theme.palette.toggle]
+icon = "material/brightness-7"
+name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "blue"
+accent = "light-blue"
+
+[project.theme.palette.toggle]
+icon = "material/brightness-4"
+name = "Switch to light mode"
+
+[project.theme.icon]
+repo = "fontawesome/brands/github"
+
+# Repository Integration
+repo_url = "https://github.com/LukeEvansTech/gitlab-baseline-check/"
+repo_name = "LukeEvansTech/gitlab-baseline-check"
+edit_uri = "edit/main/docs/docs"
+
+# Navigation Structure
+[[nav]]
+Home = "index.md"
+
+[[nav]]
+"Quick start" = "quickstart.md"
+
+[[nav]]
+"What it checks" = "checks.md"
+
+[[nav]]
+"Reading the results" = "results.md"
+
+[[nav]]
+Troubleshooting = "troubleshooting.md"
+
+[[nav]]
+Contributing = "contributing.md"
+
+# Markdown Extensions
+[markdown_extensions]
+admonition = {}
+attr_list = {}
+md_in_html = {}
+tables = {}
+toc = { permalink = true }
+
+[markdown_extensions.pymdownx]
+highlight = { anchor_linenums = true, line_spans = "__span", pygments_lang_class = true }
+inlinehilite = {}
+snippets = {}
+details = {}
+tabbed = { alternate_style = true }
+
+[markdown_extensions.pymdownx.superfences]
+custom_fences = [{ name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }]
