@@ -197,7 +197,7 @@
       "expect": true,
       "tier": "free",
       "cis": "1.4.1",
-      "why": "Administrators cannot authorise untrusted OAuth applications that ask for scopes such as api, read_repository or sudo."
+      "why": "Administrators cannot authorise untrusted OAuth applications that ask for broad scopes such as full API access or sudo."
     },
     {
       "area": "Outbound requests",

@@ -49,7 +49,7 @@ def render():
     """Return the page text."""
     with open(BASELINE, encoding="utf-8") as fh:
         checks = json.load(fh)["checks"]
-    out = [INTRO]
+    out = [INTRO.rstrip("\n")]
     area = None
     for check in checks:
         if check["area"] != area:
@@ -64,7 +64,12 @@ def render():
     return "\n".join(out) + "\n"
 
 
-if __name__ == "__main__":
-    with open(PAGE, "w", encoding="utf-8", newline="\n") as fh:
-        fh.write(render())
+def main():
+    """Write the page."""
+    with open(PAGE, "w", encoding="utf-8", newline="\n") as page:
+        page.write(render())
     print(f"wrote {os.path.relpath(PAGE, ROOT)}")
+
+
+if __name__ == "__main__":
+    main()

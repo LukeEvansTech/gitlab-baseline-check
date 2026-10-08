@@ -21,29 +21,31 @@ The token can read every admin setting, so treat it like an administrator passwo
 
 ## 3. Run the check
 
-=== "PowerShell"
+### PowerShell
 
-    Works on Windows PowerShell 5.1 and PowerShell 7, with no modules to install.
+Works on Windows PowerShell 5.1 and PowerShell 7, with no modules to install.
 
-    ```powershell
-    .\Test-GitLabBaseline.ps1 -Url https://gitlab.example.com -CsvPath results.csv
-    ```
+```powershell
+.\Test-GitLabBaseline.ps1 -Url https://gitlab.example.com -CsvPath results.csv
+```
 
-    If the execution policy blocks the script:
+If the execution policy blocks the script:
 
-    ```powershell
-    powershell -ExecutionPolicy Bypass -File .\Test-GitLabBaseline.ps1 -Url https://gitlab.example.com
-    ```
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Test-GitLabBaseline.ps1 -Url https://gitlab.example.com
+```
 
-=== "Python"
+### Python
 
-    Works on Python 3.8 or later, with the standard library only.
+Works on Python 3.8 or later, with the standard library only.
 
-    ```sh
-    python3 gitlab_baseline_check.py --url https://gitlab.example.com --csv results.csv
-    ```
+```sh
+python3 gitlab_baseline_check.py --url https://gitlab.example.com --csv results.csv
+```
 
-    If the instance uses a certificate from an internal CA that Python doesn't trust, add `--ca-bundle path/to/ca.pem`.
+If the instance uses a certificate from an internal CA that Python doesn't trust, add `--ca-bundle path/to/ca.pem`.
+
+### The token
 
 The script prompts for the token without echoing it. To run unattended, set the `GITLAB_TOKEN` environment variable instead. Never pass the token as a command-line argument.
 

@@ -20,7 +20,7 @@ PASS,Tokens,require_personal_access_token_expiry,true,true,free,,"Personal, proj
 PASS,Tokens,service_access_tokens_expiration_enforced,true,true,free,,Service account tokens must have an expiry date. On Free GitLab always requires one; on Premium and Ultimate this setting decides.
 FAIL,Tokens,max_personal_access_token_lifetime,<= 90,null,ultimate,,Caps token lifetime in days. Below Ultimate GitLab saves this value but does not enforce it.
 PASS,OAuth applications,user_oauth_applications,false,false,free,1.4.1,Users cannot register their own OAuth applications.
-PASS,OAuth applications,disable_admin_oauth_scopes,true,true,free,1.4.1,"Administrators cannot authorise untrusted OAuth applications that ask for scopes such as api, read_repository or sudo."
+PASS,OAuth applications,disable_admin_oauth_scopes,true,true,free,1.4.1,Administrators cannot authorise untrusted OAuth applications that ask for broad scopes such as full API access or sudo.
 PASS,Outbound requests,allow_local_requests_from_web_hooks_and_services,false,false,free,1.4.4,"Webhooks and integrations cannot reach the internal network, which limits server-side request forgery."
 PASS,Outbound requests,allow_local_requests_from_system_hooks,false,false,free,1.4.4,System hooks cannot reach the internal network.
 PASS,Outbound requests,dns_rebinding_protection_enabled,true,true,free,1.4.4,Stops a hostname that resolves to a public address at check time from resolving to an internal one at request time.

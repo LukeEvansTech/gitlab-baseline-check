@@ -11,7 +11,6 @@ matching CIS GitLab Benchmark v1.0.1 recommendation, where there is one.
 Only change the settings under "Identity after SSO" once single sign-on works, or
 administrators can lock themselves out of the web interface.
 
-
 ## Administration
 
 | Setting | Expected | Tier | CIS | Why |
@@ -72,7 +71,7 @@ administrators can lock themselves out of the web interface.
 | Setting | Expected | Tier | CIS | Why |
 | ------- | -------- | ---- | --- | --- |
 | `user_oauth_applications` | `false` | All tiers | 1.4.1 | Users cannot register their own OAuth applications. |
-| `disable_admin_oauth_scopes` | `true` | All tiers | 1.4.1 | Administrators cannot authorise untrusted OAuth applications that ask for scopes such as api, read_repository or sudo. |
+| `disable_admin_oauth_scopes` | `true` | All tiers | 1.4.1 | Administrators cannot authorise untrusted OAuth applications that ask for broad scopes such as full API access or sudo. |
 
 ## Outbound requests
 
