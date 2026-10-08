@@ -1,0 +1,3 @@
+tests/fixtures/
+# Generated from baseline.json by scripts/gen_checks_page.py.
+docs/docs/checks.md

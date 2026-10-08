@@ -1,0 +1,86 @@
+# Zensical Configuration
+# https://zensical.org/docs/
+
+[project]
+site_name = "GitLab Baseline Check"
+site_description = "Read-only check of a GitLab self-managed instance's security settings, in Python and PowerShell"
+site_author = "Luke Evans"
+site_url = "https://lukeevanstech.github.io/gitlab-baseline-check/"
+copyright = "Copyright © 2026 Luke Evans"
+
+docs_dir = "docs"
+site_dir = "site"
+use_directory_urls = true
+dev_addr = "localhost:8000"
+
+# Repository integration
+repo_url = "https://github.com/LukeEvansTech/gitlab-baseline-check"
+repo_name = "LukeEvansTech/gitlab-baseline-check"
+edit_uri = "edit/main/docs/docs/"
+
+[project.theme]
+name = "material"
+variant = "modern"
+language = "en"
+features = ["content.action.edit"]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "blue"
+accent = "light-blue"
+
+[project.theme.palette.toggle]
+icon = "material/brightness-7"
+name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "blue"
+accent = "light-blue"
+
+[project.theme.palette.toggle]
+icon = "material/brightness-4"
+name = "Switch to light mode"
+
+[project.theme.icon]
+repo = "fontawesome/brands/github"
+
+
+# Navigation Structure
+[[project.nav]]
+Home = "index.md"
+
+[[project.nav]]
+"Quick start" = "quickstart.md"
+
+[[project.nav]]
+"What it checks" = "checks.md"
+
+[[project.nav]]
+"Reading the results" = "results.md"
+
+[[project.nav]]
+Troubleshooting = "troubleshooting.md"
+
+[[project.nav]]
+Contributing = "contributing.md"
+
+# Markdown Extensions
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+md_in_html = {}
+tables = {}
+toc = { permalink = true }
+
+[project.markdown_extensions.pymdownx]
+highlight = { anchor_linenums = true, line_spans = "__span", pygments_lang_class = true }
+inlinehilite = {}
+snippets = {}
+details = {}
+tabbed = { alternate_style = true }
+
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [{ name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }]
