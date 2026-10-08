@@ -1,0 +1,8 @@
+# Results contain an instance's security settings: keep them out of the repo.
+*.csv
+!tests/fixtures/*.csv
+
+__pycache__/
+.DS_Store
+.vscode/
+.idea/
