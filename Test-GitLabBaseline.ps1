@@ -32,11 +32,13 @@ Test mode: read {plan, version, settings} JSON instead of calling an instance.
 param(
     [string]$Url,
     [string]$CsvPath,
-    [string]$BaselinePath = (Join-Path -Path $PSScriptRoot -ChildPath 'baseline.json'),
+    [string]$BaselinePath,
     [string]$FromFile
 )
 
 Set-StrictMode -Version 2.0
+# Windows PowerShell 5.1 leaves $PSScriptRoot empty in parameter defaults, so set it here.
+if (-not $BaselinePath) { $BaselinePath = Join-Path -Path $PSScriptRoot -ChildPath 'baseline.json' }
 $ErrorActionPreference = 'Stop'
 
 $Rank = @{ free = 0; premium = 1; ultimate = 2 }
