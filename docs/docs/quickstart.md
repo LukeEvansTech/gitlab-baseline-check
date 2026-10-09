@@ -23,7 +23,7 @@ The token can read every admin setting, so treat it like an administrator passwo
 
 ### PowerShell
 
-Works on Windows PowerShell 5.1 and PowerShell 7, with no modules to install.
+The script runs on Windows PowerShell 5.1 and PowerShell 7, with no modules to install.
 
 ```powershell
 .\Test-GitLabBaseline.ps1 -Url https://gitlab.example.com -CsvPath results.csv
@@ -37,7 +37,7 @@ powershell -ExecutionPolicy Bypass -File .\Test-GitLabBaseline.ps1 -Url https://
 
 ### Python
 
-Works on Python 3.8 or later, with the standard library only.
+The script runs on Python 3.8 or later and uses only the standard library.
 
 ```sh
 python3 gitlab_baseline_check.py --url https://gitlab.example.com --csv results.csv
@@ -49,7 +49,7 @@ If the instance uses a certificate from an internal CA that Python doesn't trust
 
 The script prompts for the token without echoing it. To run unattended, set the `GITLAB_TOKEN` environment variable instead. Never pass the token as a command-line argument.
 
-The URL must start with `https://`. The scripts refuse redirects, so use the instance's final address, not one that redirects to it.
+The URL must start with `https://`. The scripts refuse redirects, so give the instance's final address.
 
 ## 4. Read the output
 

@@ -171,7 +171,7 @@ function Get-InstanceState {
         # a paid-tier setting can show NOT ENFORCED wrongly but never PASS wrongly.
         $plan = Get-NormalisedPlan -Plan ([string](Get-Property -Object $lic.Body -Name 'plan').Value)
         if ([bool](Get-Property -Object $lic.Body -Name 'expired').Value) {
-            [Console]::Error.WriteLine("warning: the $plan licence has expired, so paid-tier settings are checked as Free. If it was a paid licence, not a trial, they may still apply.")
+            [Console]::Error.WriteLine("warning: the $plan licence has expired, so paid-tier settings are checked as Free. If it was a paid licence rather than a trial, they may still apply.")
             $plan = 'free'
         }
     } else {

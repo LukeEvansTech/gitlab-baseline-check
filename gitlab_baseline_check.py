@@ -133,7 +133,7 @@ def licence_plan(lic):
     if lic.get("expired"):
         print(
             f"warning: the {plan} licence has expired, so paid-tier settings are "
-            "checked as Free. If it was a paid licence, not a trial, they may still apply.",
+            "checked as Free. If it was a paid licence rather than a trial, they may still apply.",
             file=sys.stderr,
         )
         return "free"

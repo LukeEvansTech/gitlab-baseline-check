@@ -21,11 +21,11 @@ TIERS = {"free": "All tiers", "premium": "Premium", "ultimate": "Ultimate"}
 INTRO = """\
 # What it checks
 
-This page is generated from `baseline.json`, which both scripts read. To change what
-counts as a pass, edit `expect` in that file and run `python3 scripts/gen_checks_page.py`.
+`scripts/gen_checks_page.py` builds this page from `baseline.json`, the file both scripts
+read. To change what counts as a pass, edit `expect` in that file and run the generator.
 
-**Expected** shows the comparison: a plain value must match exactly, `<= n` means the
-number must not exceed `n`, and `includes` means the list must contain that value.
+In the **Expected** column, a plain value must match exactly, `<= n` means the number
+must not exceed `n`, and `includes` means the list must contain that value.
 **Tier** is the lowest licence tier on which GitLab enforces the setting. **CIS** is the
 matching CIS GitLab Benchmark v1.0.1 recommendation, where there is one.
 
