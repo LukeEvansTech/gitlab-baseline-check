@@ -11,7 +11,7 @@ Every error below stops the check with exit code 2.
 | `GET /license returned HTTP …, so the tier is unknown`               | The licence endpoint failed with something other than "no licence". Without the tier, you can't trust paid-tier results, so the check stops. Retry. |
 | `cannot reach …`                                                     | DNS, network, proxy or TLS failure. For an internal CA with Python, add `--ca-bundle`. PowerShell uses the Windows certificate store.               |
 | `gave an unreadable response`                                        | Something other than GitLab answered, often a proxy or sign-in page, or the reply was cut off.                                                      |
-| `the token contains spaces, line breaks or other invalid characters` | The token was pasted with extra characters. Paste it again.                                                                                         |
+| `the token contains spaces, line breaks or other invalid characters` | The pasted token has extra characters in it. Paste it again.                                                                                        |
 
 ## Settings show as ABSENT
 

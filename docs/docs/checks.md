@@ -1,10 +1,10 @@
 # What it checks
 
-This page is generated from `baseline.json`, which both scripts read. To change what
-counts as a pass, edit `expect` in that file and run `python3 scripts/gen_checks_page.py`.
+`scripts/gen_checks_page.py` builds this page from `baseline.json`, the file both scripts
+read. To change what counts as a pass, edit `expect` in that file and run the generator.
 
-**Expected** shows the comparison: a plain value must match exactly, `<= n` means the
-number must not exceed `n`, and `includes` means the list must contain that value.
+In the **Expected** column, a plain value must match exactly, `<= n` means the number
+must not exceed `n`, and `includes` means the list must contain that value.
 **Tier** is the lowest licence tier on which GitLab enforces the setting. **CIS** is the
 matching CIS GitLab Benchmark v1.0.1 recommendation, where there is one.
 
@@ -21,7 +21,7 @@ administrators can lock themselves out of the web interface.
 
 | Setting | Expected | Tier | CIS | Why |
 | ------- | -------- | ---- | --- | --- |
-| `session_expire_delay` | `<= 480` | All tiers | - | Web sessions last at most 8 hours (value in minutes). The default is a week. |
+| `session_expire_delay` | `<= 480` | All tiers | - | Web sessions last at most 480 minutes, which is 8 hours. The default is a week. |
 | `session_expire_from_init` | `true` | All tiers | - | The session lifetime counts from sign-in, so activity cannot keep a session alive indefinitely. |
 | `remember_me_enabled` | `false` | All tiers | - | Remember me keeps users signed in beyond the session lifetime. |
 | `notify_on_unknown_sign_in` | `true` | All tiers | - | Users get an email when someone signs in to their account from an unknown IP address. |
@@ -38,14 +38,14 @@ administrators can lock themselves out of the web interface.
 
 | Setting | Expected | Tier | CIS | Why |
 | ------- | -------- | ---- | --- | --- |
-| `deactivate_dormant_users` | `true` | All tiers | 1.3.1 | GitLab deactivates accounts that have not been used, so leavers missed by the joiners and leavers process lose access. |
+| `deactivate_dormant_users` | `true` | All tiers | 1.3.1 | GitLab deactivates unused accounts, so leavers that the joiners and leavers process missed lose access. |
 | `deactivate_dormant_users_period` | `<= 90` | All tiers | 1.3.1 | Days of inactivity before deactivation. |
 
 ## Creation limits
 
 | Setting | Expected | Tier | CIS | Why |
 | ------- | -------- | ---- | --- | --- |
-| `can_create_group` | `false` | All tiers | 1.3.2 | Only administrators create top-level groups, so every group sits under a governed parent. |
+| `can_create_group` | `false` | All tiers | 1.3.2 | Only administrators create top-level groups, so every new top-level group goes through an administrator. |
 | `allow_project_creation_for_guest_and_below` | `false` | All tiers | 1.2.2 | Guests cannot create projects. |
 | `default_projects_limit` | `<= 0` | All tiers | 1.2.2 | New users get no personal projects, so code lives in groups the organisation controls. The default is 100,000. |
 
@@ -64,7 +64,7 @@ administrators can lock themselves out of the web interface.
 | ------- | -------- | ---- | --- | --- |
 | `require_personal_access_token_expiry` | `true` | All tiers | - | Personal, project and group access tokens must have an expiry date. |
 | `service_access_tokens_expiration_enforced` | `true` | All tiers | - | Service account tokens must have an expiry date. On Free GitLab always requires one; on Premium and Ultimate this setting decides. |
-| `max_personal_access_token_lifetime` | `<= 90` | Ultimate | - | Caps token lifetime in days. Below Ultimate GitLab saves this value but does not enforce it. |
+| `max_personal_access_token_lifetime` | `<= 90` | Ultimate | - | The longest lifetime, in days, that a new access token can have. Below Ultimate GitLab saves this value but does not enforce it. |
 
 ## OAuth applications
 
@@ -91,8 +91,8 @@ administrators can lock themselves out of the web interface.
 
 | Setting | Expected | Tier | CIS | Why |
 | ------- | -------- | ---- | --- | --- |
-| `password_authentication_enabled_for_web` | `false` | All tiers | 1.3.6 | Users sign in through the organisation's identity provider, not a GitLab password. Only set this once SSO works. |
-| `password_authentication_enabled_for_git` | `false` | All tiers | 1.3.6 | Git over HTTPS uses tokens, not the account password. |
+| `password_authentication_enabled_for_web` | `false` | All tiers | 1.3.6 | Turns off GitLab password sign-in on the web, so users sign in through the organisation's identity provider. Only set this once SSO works. |
+| `password_authentication_enabled_for_git` | `false` | All tiers | 1.3.6 | Git over HTTPS then needs an access token, and the account password stops working for Git. |
 | `require_two_factor_authentication` | `true` | All tiers | 1.3.5 | Applies to GitLab password sign-in. Users who sign in through SSO get MFA from the identity provider. |
 | `two_factor_grace_period` | `<= 0` | All tiers | 1.3.5 | Hours a user can delay setting up two-factor authentication. |
 | `require_admin_two_factor_authentication` | `true` | All tiers | 1.3.5 | Administrators must use two-factor authentication. |
