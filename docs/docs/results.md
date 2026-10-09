@@ -11,7 +11,7 @@
 
 A `NOT ENFORCED` result means GitLab ignores the setting even though it reads correctly. Close the gap with a licence upgrade or a compensating control.
 
-An expired licence counts as Free. The licence API doesn't say whether a licence was a trial, and an expired trial turns paid features off. The script prints a warning when this happens; if the expired licence was a paid one, its paid-tier settings may still apply.
+An expired licence counts as Free. The licence API doesn't say whether a licence was a trial, and an expired trial turns paid features off. The script prints a warning when this happens. If the expired licence was a paid one, its paid-tier settings may still apply.
 
 ## Exit codes
 
@@ -38,4 +38,4 @@ With `-CsvPath` or `--csv`, the script also writes a CSV with these columns:
 
 The two scripts write the same CSV byte for byte, so you can compare results from either.
 
-The CSV records an instance's security configuration. Store and share it accordingly. The repository ignores `*.csv`, so nobody commits a result by mistake.
+The CSV records an instance's security configuration. Store and share it as you would any other security configuration. The repository ignores `*.csv`, so nobody commits a result by mistake.

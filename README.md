@@ -4,7 +4,7 @@ A read-only check of a GitLab self-managed instance's instance-wide security set
 
 **Documentation: <https://lukeevanstech.github.io/gitlab-baseline-check/>**
 
-Both scripts read `baseline.json`, call the GitLab REST API with GET requests only, and change nothing on the instance. They read the licence too, so a setting GitLab saves but doesn't enforce on the instance's tier shows as `NOT ENFORCED`, not `PASS`.
+Both scripts read `baseline.json`, call the GitLab REST API with GET requests only, and change nothing on the instance. They read the licence too, so a setting GitLab saves but doesn't enforce on the instance's tier shows as `NOT ENFORCED`.
 
 ## Quick start
 
